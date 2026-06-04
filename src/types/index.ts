@@ -1,128 +1,81 @@
+import type { ReactNode } from 'react';
+
 /**
  * Type Definitions
- *
- * File ini berisi semua TypeScript interfaces dan types yang digunakan
- * di berbagai tempat dalam aplikasi.
- *
- * Best Practices:
- * - Gunakan PascalCase untuk interface names
- * - Export semua interfaces agar bisa digunakan di file lain
- * - Group related interfaces bersama
- * - Add comments untuk explain complex types
+ * Semua interface & type yang dipakai di banyak komponen.
  */
 
 // ==========================================
 // UI Component Types
 // ==========================================
 
-/**
- * Button variant types
- * Gunakan ini untuk Button component
- */
+// Varian gaya tombol (mengikuti pola design system)
 export type ButtonVariant = 'primary' | 'secondary' | 'outline';
 
-/**
- * Example: Button Props
- * Uncomment dan sesuaikan dengan kebutuhan
- */
-// export interface ButtonProps {
-//   variant?: ButtonVariant;
-//   children: React.ReactNode;
-//   onClick?: () => void;
-//   className?: string;
-//   disabled?: boolean;
-// }
+// Props untuk komponen Button yang reusable
+export interface ButtonProps {
+  children: ReactNode; // isi tombol (teks/icon)
+  variant?: ButtonVariant; // gaya tombol
+  href?: string; // jika diisi, render sebagai <a>
+  onClick?: () => void;
+  className?: string;
+}
 
 // ==========================================
 // Section Data Types
 // ==========================================
 
-/**
- * TODO: Define interfaces untuk data yang digunakan di sections
- *
- * Contoh:
- * - ServiceItem untuk services section
- * - TeamMember untuk team section
- * - Testimonial untuk testimonials section
- * - dll.
- */
+// Satu item statistik (mis. "50+ Projects Delivered")
+export interface Stat {
+  value: string;
+  label: string;
+}
 
-/**
- * Example: Service/Product Item
- */
-// export interface ServiceItem {
-//   id: number;
-//   title: string;
-//   description: string;
-//   icon?: string;
-//   image?: string;
-// }
+// Satu langkah pada bagian "Our Process"
+export interface ProcessStep {
+  id: number;
+  title: string;
+  description: string;
+}
 
-/**
- * Example: Team Member
- */
-// export interface TeamMember {
-//   id: number;
-//   name: string;
-//   position: string;
-//   bio?: string;
-//   image: string;
-//   socialLinks?: {
-//     linkedin?: string;
-//     twitter?: string;
-//     github?: string;
-//   };
-// }
+// Satu kartu layanan pada bagian "Services"
+export interface Service {
+  icon: string; // path gambar icon (hasil import dari assets)
+  title: string;
+  description: string;
+}
 
-/**
- * Example: Testimonial
- */
-// export interface Testimonial {
-//   id: number;
-//   name: string;
-//   position: string;
-//   company: string;
-//   message: string;
-//   avatar?: string;
-//   rating?: number;
-// }
+// Satu tab industri pada bagian "Built for Your Industry"
+export interface Industry {
+  name: string;
+  description: string;
+  image: string;
+}
 
-// ==========================================
-// Navigation Types
-// ==========================================
+// Satu kartu portfolio
+export interface Portfolio {
+  category: string;
+  title: string;
+  image: string;
+}
 
-/**
- * Navigation menu item
- */
-// export interface NavItem {
-//   label: string;
-//   href: string;
-//   external?: boolean;
-// }
+// Satu testimoni
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+  avatar: string;
+  rating: number;
+}
 
-// ==========================================
-// Form Types (if needed)
-// ==========================================
+// Satu pertanyaan FAQ
+export interface Faq {
+  question: string;
+  answer: string;
+}
 
-/**
- * Contact form data
- */
-// export interface ContactFormData {
-//   name: string;
-//   email: string;
-//   message: string;
-// }
-
-// ==========================================
-// TODO: Add more types as needed!
-// ==========================================
-
-/**
- * Tips:
- * 1. Define types berdasarkan data yang kamu perlukan
- * 2. Lihat design Figma untuk understand data structure
- * 3. Make types reusable across components
- * 4. Use optional properties (?) untuk data yang tidak selalu ada
- * 5. Consider creating separate files jika types terlalu banyak
- *    Example: types/components.ts, types/data.ts, etc.
- */
+// Item menu navigasi
+export interface NavItem {
+  label: string;
+  href: string;
+}

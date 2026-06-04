@@ -1,44 +1,73 @@
 /**
  * Main CSS File
- *
  * Tailwind CSS v4 - Using new @import syntax
- * Docs: https://tailwindcss.com/docs/installation/using-vite
  */
 
-@import "tailwindcss";
+@import 'tailwindcss';
+
+/* Import font dari Google Fonts: Quicksand) */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
 /* Tell Tailwind where to scan for classes */
 @source "./**/*.{js,jsx,ts,tsx}";
 @source "../index.html";
 
-/**
- * Custom Global Styles
- *
- * Add your custom global styles here if needed
- * Prefer using Tailwind utilities in components
- */
+/*
+  @theme 
+*/
+@theme {
+  --color-primary: #ff623e;
+  --color-primary-dark: #e8431a;
+  --color-primary-light: #ff7a4d;
 
-/* Smooth scrolling for anchor links */
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-surface-2: #1c1c1c;
+  --color-border-soft: #262626;
+
+  --color-text: #ffffff;
+  --color-muted: #9ca3af;
+
+  --font-display: 'Quicksand', sans-serif;
+  --font-body: 'Quicksand', sans-serif;
+}
+
+/* ===== Custom Global Styles ===== */
+
+/* Smooth scrolling untuk anchor link */
 html {
   scroll-behavior: smooth;
 }
 
-/* Optional: Custom scrollbar styles */
-/* Uncomment if you want custom scrollbar
-::-webkit-scrollbar {
-  width: 10px;
+/* Background gelap + font default untuk seluruh halaman */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+/* Heading memakai font display (Poppins) */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
+/* Animasi fade-up untuk efek muncul saat halaman load */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out both;
 }
-*/

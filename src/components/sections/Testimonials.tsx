@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 import { testimonials } from '../../data';
 import type { Testimonial } from '../../types';
+import quoteIcon from '../../assets/quote.png';
 
 /*
   Testimonials: carousel testimoni.
@@ -20,9 +21,10 @@ function Card({ data, active }: { data: Testimonial; active: boolean }) {
           : 'border-transparent bg-surface/40 opacity-40'
       }`}
     >
-      <Quote
-        className='mb-3 h-8 w-8 rotate-180 text-primary'
-        fill='currentColor'
+      <img
+        src={quoteIcon}
+        alt='quote'
+        className='mb-3 h-8 w-8 object-contain'
       />
 
       <div className='mb-3 flex justify-center gap-1'>

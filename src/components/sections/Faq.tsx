@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { faqs } from '../../data';
 import Button from '../ui/Button';
+import consultation from '../../assets/consultation.png';
 
 /*
   Faq: accordion (klik untuk buka/tutup) + kartu konsultasi oranye.
@@ -63,7 +64,7 @@ export default function Faq() {
               book a free consultation with our team.
             </p>
             <img
-              src='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80'
+              src={consultation}
               alt='consultation'
               className='mt-4 h-40 w-full rounded-xl object-cover'
             />
